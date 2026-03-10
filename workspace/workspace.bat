@@ -1,10 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
 
-:: ============================================
-:: ArkIDE Workspace Setup Script
-:: ============================================
-
 color 0A
 cls
 echo ========================================
@@ -12,7 +8,6 @@ echo    ArkIDE Workspace Setup Script
 echo ========================================
 echo.
 
-:: Configuration
 set "ARKIDE_WORKSPACE_DIR=%USERPROFILE%\ArkIDE_Workspace"
 
 :: Repository URLs (customize these)
@@ -22,7 +17,6 @@ set "REPO3=https://github.com/The-ArkIDE-Project/ArkIDE-Desktop.git"
 set "REPO4=https://github.com/The-ArkIDE-Project/ArkIDE-ObjectLibraries.git"
 set "REPO5=https://github.com/The-ArkIDE-Project/ArkIDE-ExtensionGallery.git"
 
-:: Display configuration
 echo Workspace Directory: %ARKIDE_WORKSPACE_DIR%
 echo.
 echo Repositories to clone:
@@ -33,7 +27,6 @@ echo   * %REPO4%
 echo   * %REPO5%
 echo.
 
-:: Confirmation prompt
 :PROMPT
 set /p "CONFIRM=Do you want to proceed with cloning these repositories? (Y/N): "
 if /i "%CONFIRM%"=="Y" goto PROCEED
@@ -52,11 +45,9 @@ echo.
 echo [OK] Starting setup...
 echo.
 
-:: Create workspace directory
 if not exist "%ARKIDE_WORKSPACE_DIR%" mkdir "%ARKIDE_WORKSPACE_DIR%"
 cd /d "%ARKIDE_WORKSPACE_DIR%"
 
-:: Clone repositories
 echo [CLONE] Cloning repositories...
 git clone %REPO1%
 git clone %REPO2%
